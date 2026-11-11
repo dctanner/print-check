@@ -1,0 +1,6 @@
+printer = "bambu_a1_mini"
+
+[context]
+material = "pla"
+min_wall = 1.0
+up = [0, 0, 1]

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "print-check-toolkit"
+version = "0.1.0"
+description = "Standalone CAD printability checks and an AI agent skill, extracted from Nurb"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "LicenseRef-FSL-1.1-MIT"
+license-files = ["LICENSE", "NOTICE.md"]
+dependencies = ["build123d>=0.11.1,<0.12"]
+
+[project.urls]
+Repository = "https://github.com/dctanner/print-check"
+Upstream = "https://github.com/Shpigford/nurb"
+
+[project.scripts]
+print-check = "print_check.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/print_check"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"skills/print-check/SKILL.md" = "print_check/skill/SKILL.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,9 @@
+{
+  "name": "print-check-toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CAD printability skill extracted from Nurb",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": ["pi-package"],
+  "pi": { "skills": ["./skills"] }
+}

@@ -1,0 +1,15 @@
+# Optional template: copy to .github/workflows/tests.yml to enable GitHub Actions.
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen --extra dev --python ${{ matrix.python }}
+      - run: uv run pytest -q
+      - run: uv build
